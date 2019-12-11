@@ -43,8 +43,8 @@ class API extends Controller
         }
 
         // Get the payment details W/O auth information
-        $postData = $this->requestData;
-        $tagData = $postData["tags"];
+        $postData = $this->requestData["data"];
+        $tagData = isset($postData["tags"]) ? $postData["tags"] : array();
         unset($postData["auth"]);
         unset($postData["tags"]);
 
@@ -119,11 +119,11 @@ class API extends Controller
 
         foreach ([
                      "content",
-                     "parent_link",
-                     "link",
+                     "page_link",
+                     //"link",
                  ] as $requiredField) {
 
-            if (!isset($this->requestData[$requiredField])) {
+            if (!isset($this->requestData["data"][$requiredField])) {
                 return false;
             }
         }

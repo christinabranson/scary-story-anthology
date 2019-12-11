@@ -18,7 +18,7 @@ class CreateStoriesTable extends Migration
             $table->timestamps();
             $table->string('title', 255)->nullable();
             $table->string('username', 255)->nullable();
-            $table->mediumText('parent_link')->nullable();
+            $table->mediumText('page_link')->nullable();
             $table->mediumText('link')->nullable();
             $table->mediumText('content')->nullable();
         });

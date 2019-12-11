@@ -12,7 +12,7 @@ class Story extends Model
         "title",
         "username",
         "content",
-        "parent_link",
+        "page_link",
         "link",
     ];
 
