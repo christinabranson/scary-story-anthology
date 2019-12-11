@@ -14,3 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+// API calls
+Route::get('/api', 'API@sampleDocumentation');
+Route::post('/api/postStory', 'API@postStory');
