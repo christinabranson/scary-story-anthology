@@ -1,7 +1,7 @@
-<!DOCTYPE html>
-<html>
-<body>
-<h1>story</h1>
+@extends('layouts.app')
+@section('title', 'a story...')
+
+@section('content')
 <div class="contant">
     {!! $story->content !!}
 </div>
@@ -10,5 +10,4 @@
         <li><a href="{{ route('tag', $tag->id) }}">{{ $tag->name }}</a></li>
     @endforeach
 </ul>
-</body>
-</html>
+@endsection

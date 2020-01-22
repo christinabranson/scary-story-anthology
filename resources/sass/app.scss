@@ -1,8 +1,81 @@
-// Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
-
 // Variables
 @import 'variables';
 
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
+// Flex box
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  overflow: hidden;  /*makes the body non-scrollable (we will add scrolling to the sidebar and main content containers)*/
+  margin: 0px;  /*removes default style*/
+  display: flex;  /*enables flex content for its children*/
+  box-sizing: border-box;
+  font-family: $font-family-sans-serif;
+}
+
+.column {
+  height: 100%;  /*allows both columns to span the full height of the browser window*/
+  display: flex;
+  flex-direction: column;  /*places the left and right headers above the bottom content*/
+}
+
+#left {
+  flex-shrink: 0;  /*makes sure that content is not cut off in a smaller browser window*/
+}
+
+.top-left {
+  flex-shink: 0;
+}
+
+.top-right {
+  flex-shrink: 0;
+  display: inline-flex;
+}
+
+ul {
+  display: inline-flex;
+  list-style: none;
+}
+
+.bottom {
+  flex-grow: 1;  /*ensures that the container will take up the full height of the parent container*/
+  overflow-y: auto;  /*adds scroll to this container*/
+}
+
+.sidebar {
+  background-color: #eee;
+  background-image: url('/img/bg2.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  width: 30%;
+  color: #fff;
+}
+
+.sidebar-content {
+  padding: 2em;
+  text-align: center;
+}
+
+.column-with-padding {
+  padding: 2em;
+}
+
+// Main menu
+ul.mainmenu {
+ margin: 0px auto;
+  padding: 0px;
+}
+
+ul.mainmenu li {
+  display: inline-block;
+  margin: 1em;
+}
+
+ul.mainmenu li a {
+  color: #fff;
+  text-decoration: none;
+}

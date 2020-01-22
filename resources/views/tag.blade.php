@@ -1,4 +1,8 @@
-<h1>tag: {{ $tag->name }}</h1>
+@extends('layouts.app')
+@section('title', $tag->name )
+
+@section('content')
+    <h2>tag: {{ $tag->name }}</h2>
 <ul>
     @foreach($stories as $story)
     <li data-count="{{ $story->id }}"><a href="{{ route('story', $story->id) }}">{{ $story->generateSummary() }}</a><br/>
@@ -11,3 +15,4 @@
     </li>
 @endforeach
 </ul>
+@endsection

@@ -50,4 +50,14 @@ class Stories extends Controller {
 
         return view('story', compact("story"));
     }
+
+    public function random() {
+        $story = Story::query()->inRandomOrder()->first();
+
+        if (is_null($story)) {
+            return redirect('home');
+        }
+
+        return view('story', compact("story"));
+    }
 }
