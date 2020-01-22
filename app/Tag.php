@@ -14,6 +14,6 @@ class Tag extends Model
 
 
     public function stories() {
-        return $this->hasManyThrough("App\Story", "stories_to_tags", "tag_id", "story_id", "id");
+        return $this->belongsToMany("App\Story", "stories_to_tags", "tag_id", "story_id");
     }
 }

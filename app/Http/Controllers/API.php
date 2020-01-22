@@ -66,8 +66,6 @@ class API extends Controller
             $story->tags()->sync($tagSync);
         }
 
-
-
         $message = "Request saved with ID `$story_id`.";
 
         return response()->json([
