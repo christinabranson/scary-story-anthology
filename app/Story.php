@@ -30,6 +30,30 @@ class Story extends Model
         return htmlspecialchars_decode($this->content);
     }
 
+    public function getParentLink() {
+        if (strlen($this->page_link)) {
+            if (strpos($this->page_link, "http") !== false) {
+                return $this->page_link;
+            } else {
+                return "http://reddit.com/" . $this->page_link;
+            }
+        }
+
+        return null;
+    }
+
+    public function getLink() {
+        if (strlen($this->link)) {
+            if (strpos($this->link, "http") !== false) {
+                return $this->link;
+            } else {
+                return "http://reddit.com/" . $this->link;
+            }
+        }
+
+        return null;
+    }
+
     public function tags() {
         return $this->belongsToMany("App\Tag", "stories_to_tags", "story_id", "tag_id");
     }

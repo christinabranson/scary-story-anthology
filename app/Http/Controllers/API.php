@@ -47,6 +47,7 @@ class API extends Controller
         $tagData = isset($postData["tags"]) ? $postData["tags"] : array();
         unset($postData["auth"]);
         unset($postData["tags"]);
+        $postData["username"] = $postData["author"];
 
         $story = new Story($postData);
         $story->save();

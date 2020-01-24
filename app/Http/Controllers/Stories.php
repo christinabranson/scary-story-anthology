@@ -25,6 +25,12 @@ class Stories extends Controller {
     }
 
     public function tags() {
+        /*
+        $tags = Tag::query()->orderBy("name")->get()->sortBy(function($countSubquery)
+        {
+            return $countSubquery->stories->count();
+        }, SORT_REGULAR, true);
+        */
         $tags = Tag::query()->orderBy("name")->get();
         return view('tags', compact("tags"));
     }
@@ -52,7 +58,17 @@ class Stories extends Controller {
     }
 
     public function random() {
-        $story = Story::query()->inRandomOrder()->first();
+        $story = Story::query()->inRandomOrder()->limit(1)->first();
+
+        if (is_null($story)) {
+            return redirect('home');
+        }
+
+        return view('story', compact("story"));
+    }
+
+    public function latest() {
+        $story = Story::query()->orderBy("id", "desc")->limit(1)->first();
 
         if (is_null($story)) {
             return redirect('home');

@@ -13,6 +13,7 @@
 
 Route::get('/', 'Stories@index')->name('home');
 Route::get('/random', 'Stories@random')->name('random');
+Route::get('/latest', 'Stories@latest')->name('latest');
 Route::get('/story/{id}', 'Stories@story', function ($id){return $id;})->name('story');
 Route::get('/tags/', 'Stories@tags')->name('tags');
 Route::get('/tags/{id}', 'Stories@tag', function ($id){return $id;})->name('tag');
